@@ -22,7 +22,7 @@ const FeaturedFood = ({feature}) => {
         <p><span className="font-bold">Pickup Location:</span> {location}</p>
         <p><span className="font-bold">Expire Date: </span> {date}</p>
         <div className='card-actions'>
-          <button className='btn btn-primary'>view Details</button>
+          <button className='btn border-none bg-gradient-to-r from-yellow-200 to-yellow-600 hover:from-red-500 hover:to-orange-500 text-white'>view Details</button>
         </div>
       </div>
     </div>
