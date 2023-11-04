@@ -28,11 +28,11 @@ const createdRoute = createBrowserRouter([
         path: "manageFoods",
         element: <ManageFoods></ManageFoods>
       },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login></Login>,
   },
   {
     path: "/register",
