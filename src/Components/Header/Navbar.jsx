@@ -87,7 +87,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img src={logo} alt="" /> 
-        <p className="font-bold text-2xl text-yellow-400">Food Flow</p>
+        <p className="font-bold text-2xl bg-gradient-to-r from-yellow-100 via-yellow-500 to-gray-300 text-transparent bg-clip-text">Food Flow</p>
       </div>
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal px-1'>
