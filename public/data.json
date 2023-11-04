@@ -1,0 +1,74 @@
+[
+    {
+      "_id": "1",
+      "food_id": "1",
+      "food_image": "https://i.ibb.co/SPMKgC0/rice.jpg",
+      "food_name": "Rice",
+      "donar_image":"https://i.ibb.co/VYNr7xg/img4.jpg",
+      "donar_name": "Seraphina Vale",
+      "quantity": "2",
+      "location": "Nirala",
+      "date": "03-08-24",
+      "notes":"Please ensure that donated food items are unopened and in good condition."
+    },
+    {
+      "_id": "2",
+      "food_id": "2",
+      "food_image": "https://i.ibb.co/FwRrHk1/lentil.jpg",
+      "food_name": "Lentil",
+      "donar_image":"https://i.ibb.co/VYNr7xg/img4.jpg",
+      "donar_name": "Zephyr Thorne",
+      "quantity": "3",
+      "location": "New Market",
+      "date": "07-04-24",
+      "notes":"Specify if the food items are suitable for children, the elderly, or individuals with dietary restrictions."
+    },
+    {
+      "_id": "3",
+      "food_id": "3",
+      "food_image": "https://i.ibb.co/6g1jVPx/breads.webp",
+      "food_name": "Bread",
+      "donar_image":"https://i.ibb.co/Wf1CNSz/img3.jpg",
+      "donar_name": "Orion Blaze",
+      "quantity": "4",
+      "location": "Rupsha",
+      "date": "17-03-24" ,
+      "notes":"Consider providing guidelines on packaging and labeling to ensure safe handling and distribution of food donations."
+    },
+    {
+      "_id": "4",
+      "food_id": "4",
+      "food_image": "https://i.ibb.co/cDNNVtD/wheat.jpg",
+      "food_name": "Wheat",
+      "donar_image":"https://i.ibb.co/bHS4fWB/img1.jpg",
+      "donar_name": "Elara Nightshade",
+      "quantity": "1",
+      "location": "Shib Bari",
+      "date": "25-12-24",
+      "notes":"Offer contact information for any questions or to arrange special pickups or large donations."  
+    },
+    {
+      "_id": "5",
+      "food_id": "5",
+      "food_image": "https://i.ibb.co/7WJFrbr/egg.webp",
+      "food_name": "Egg",
+      "donar_image":"https://i.ibb.co/CnQfGFK/img2.jpg",
+      "donar_name": "Xander Stormrider",
+      "quantity": "2",
+      "location": "Shonadanga",
+      "date": "14-02-24",
+      "notes":"Indicate the preferred drop-off location and hours of operation for food donations."  
+    },
+    {
+      "_id": "6",
+      "food_id": "6",
+      "food_image": "https://i.ibb.co/T2v36GD/fruits.jpg",
+      "food_name": "Fruits",
+      "donar_image":"https://i.ibb.co/bHS4fWB/img1.jpg",
+      "donar_name": "Isolde Emberwood",
+      "quantity": "4",
+      "location": "Zero Point",
+      "date": "05-06-24",
+      "notes":"Include a brief description of each item, making it easier for recipients to select what they need."   
+    }
+  ]
