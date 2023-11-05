@@ -7,11 +7,13 @@ import Register from "../Pages/Register/Register";
 import AddFood from "../Pages/AddFood/AddFood";
 import ManageFoods from "../Pages/ManageFoods/ManageFoods";
 import About from "../Components/Header/About";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const createdRoute = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -22,8 +24,9 @@ const createdRoute = createBrowserRouter([
         element: <About></About>
       },
       {
-        path: "availableFoods",
-        element: <AvailableFoods></AvailableFoods>
+        path: "availableFoods/:food_name",
+        element: <AvailableFoods></AvailableFoods>,
+        loader: () => fetch('http://localhost:5000/features')
       },
       {
         path: "addFood",
