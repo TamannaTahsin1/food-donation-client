@@ -1,11 +1,16 @@
 /** @format */
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {createUser} = useContext(AuthContext)
+    // error
+    const [registerError, setRegisterError] = useState("");
+    const [registerSuccess, setRegisterSuccess] = useState("");
   // handle form
   const handleRegister = (e) => {
     e.preventDefault();
@@ -17,10 +22,29 @@ const Register = () => {
     console.log(name, photo,email, password)
     console.log(form);
 
+    // validation
+    if(password.length < 6){
+      toast.error("Password must be at least 6 characters");
+      return
+    }
+    else if (!/^[a-zA-Z0-9._%+-]/.test(password)) {
+      toast.error("Password should be at least 6 characters")
+      return;
+    }
+        // reset success and error
+        setRegisterError("");
+        setRegisterSuccess("");
+
     // create user
     createUser(email, password)
     .then(result =>{
       console.log(result.user)
+      Swal.fire({
+        title: 'Success!',
+        text: 'User Created Successfully!',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
     })
     .catch(error =>{
       console.error(error)
@@ -85,6 +109,14 @@ const Register = () => {
                 required
               />
             </div>
+            <label className='label'>
+                {registerError && (
+                  <p className='text-red-600'>{registerError}</p>
+                )}
+                {registerSuccess && (
+                  <p className='text-green-600'>{registerSuccess}</p>
+                )}
+              </label>
             <div className='form-control mt-6'>
               <button className='btn bg-yellow-500 text-white'>Register</button>
             </div>

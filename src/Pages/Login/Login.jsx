@@ -5,6 +5,7 @@ import login from "../../assets/img/login.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "./SocialLogin";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {logIn} = useContext(AuthContext)
@@ -23,7 +24,15 @@ const Login = () => {
     logIn(email, password)
     .then(result =>{
       console.log(result.user);
-
+      toast.success('Successfully Logged in!',
+      {
+        icon: '👏',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      })
       // navigate after login
       navigate(location?.state ? location.state : '/')
     })
@@ -65,7 +74,7 @@ const Login = () => {
                 className='input input-bordered'
                 required
               />
-            </div>
+            </div>  
             <div className='form-control mt-6'>
               <button className='btn bg-yellow-600 text-white'>Login</button>
             </div>
