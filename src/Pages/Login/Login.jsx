@@ -1,11 +1,35 @@
 /** @format */
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/img/login.png";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
+  const {logIn} = useContext(AuthContext)
+  const location = useLocation()
+  console.log(location);
+  const navigate = useNavigate()
+
+  // handle login form
   const handleLogin = e =>{
     e.preventDefault()
+    const form = new FormData(e.current.target)
+    const email = form.get('email')
+    const password = form.get('password')
+    console.log(email, password)
+    // create user
+    logIn(email, password)
+    .then(result =>{
+      console.log(result.user);
+
+      // navigate after login
+      navigate(location?.state ? location.state : '/')
+    })
+    .catch(error =>{
+      console.log(error)
+    })
   }
   return (
     <div className='hero min-h-screen bg-base-200'>
@@ -51,6 +75,7 @@ const Login = () => {
                 Register
               </Link>
             </p>
+            <SocialLogin></SocialLogin>
           </form>
         </div>
       </div>
