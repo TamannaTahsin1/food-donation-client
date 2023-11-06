@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
 const FoodDetailsCard = ({ foodDetail }) => {
@@ -27,10 +28,37 @@ const FoodDetailsCard = ({ foodDetail }) => {
     const date = form.date.value;
     const donate = form.donate.value;
     const notes = form.notes.value;
-    console.log(name,email,date,food_name,food_image,donate, notes)
-    const donate = {
-      
+
+    const donation = {
+      donarName : name,
+      email,
+      food_name,
+      food_image,
+      date,
+      donate,
+      notes
     }
+    console.log(donation)
+    // send data in db
+    fetch('http://localhost:5000/donations',{
+      method: 'POST',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(donation)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log(data)
+      if(data.insertedId){
+        Swal.fire({
+          title: 'Cool',
+          text: 'Your Donation Added Successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool'
+        })
+      }
+    })
   }
   return (
     <div>

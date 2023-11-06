@@ -10,6 +10,7 @@ import About from "../Components/Header/About";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import AllFoods from "../Pages/AllFoods/AllFoods";
+import PrivateRoute from "./PrivateRoute";
 
 const createdRoute = createBrowserRouter([
   {
@@ -45,8 +46,7 @@ const createdRoute = createBrowserRouter([
       },
       {
         path: "manageFoods",
-        element: <ManageFoods></ManageFoods>,
-        loader: () => fetch('http://localhost:5000/foods')
+        element: <PrivateRoute><ManageFoods></ManageFoods></PrivateRoute>,
       },
       {
         path: "login",
