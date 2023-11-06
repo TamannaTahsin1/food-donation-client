@@ -8,6 +8,8 @@ import AddFood from "../Pages/AddFood/AddFood";
 import ManageFoods from "../Pages/ManageFoods/ManageFoods";
 import About from "../Components/Header/About";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import FoodDetails from "../Pages/FoodDetails/FoodDetails";
+import AllFoods from "../Pages/AllFoods/AllFoods";
 
 const createdRoute = createBrowserRouter([
   {
@@ -29,12 +31,22 @@ const createdRoute = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/features')
       },
       {
+        path: "details/:id",
+        element: <FoodDetails></FoodDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/features/${params.id}`)
+      },
+      {
         path: "addFood",
         element: <AddFood></AddFood>
       },
       {
+        path: "allFoods",
+        element: <AllFoods></AllFoods>
+      },
+      {
         path: "manageFoods",
-        element: <ManageFoods></ManageFoods>
+        element: <ManageFoods></ManageFoods>,
+        loader: () => fetch('http://localhost:5000/foods')
       },
       {
         path: "login",

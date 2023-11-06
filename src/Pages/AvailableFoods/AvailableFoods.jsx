@@ -5,14 +5,14 @@ import AvailableFoodsCard from "./AvailableFoodsCard";
 const AvailableFoods = () => {
     const [availableFoods, setAvailableFoods] = useState([])
     const {food_name} = useParams()
-    console.log(food_name)
+    // console.log(food_name)
     const foods = useLoaderData()
-    console.log(foods)
+    // console.log(foods)
 
     // sideEffect
     useEffect(() =>{
         const findFoods = foods?.filter(food => food.food_name == food_name)
-        console.log(findFoods)
+        // console.log(findFoods)
         setAvailableFoods(findFoods)
     },[food_name, foods])
 

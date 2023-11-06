@@ -1,5 +1,5 @@
+import Swal from "sweetalert2";
 import Footer from "../../Components/Footer/Footer";
-
 
 const AddFood = () => {
     const handleAddFoods = e =>{
@@ -17,7 +17,27 @@ const AddFood = () => {
     
         const newFoods = { food_image, food_name, donar_image, donar_name, quantity, location, date, notes };
         console.log(newFoods);
-    
+
+        // send data to the server
+        fetch('http://localhost:5000/foods',{
+          method: 'POST',
+          headers: {
+            'content-type' : 'application/json'
+          },
+          body: JSON.stringify(newFoods)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          console.log(data);
+          if(data.insertedId){
+            Swal.fire({
+              title: "Thanks!",
+              text: "Your Donation Has Been Added",
+              icon: "success",
+              confirmButtonText: "Cool",
+            });
+          }
+        });   
     }
     return (
         <div>

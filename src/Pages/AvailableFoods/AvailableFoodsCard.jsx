@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 // eslint-disable-next-line react/prop-types
 const AvailableFoodsCard = ({availableFood}) => {
-    const {food_image, food_name, donar_image, donar_name, quantity, location, date, notes} = availableFood || {}
+    const {_id,food_image, food_name, donar_image, donar_name, quantity, location, date, notes} = availableFood || {}
   return (
     <div>
 <div className="card card-96 card-side bg-base-100 shadow-xl">
@@ -13,9 +15,11 @@ const AvailableFoodsCard = ({availableFood}) => {
     <p><span className="font-bold">Food Quantity:</span> {quantity}</p>
         <p><span className="font-bold">Pickup Location:</span> {location}</p>
         <p><span className="font-bold">Expire Date: </span> {date}</p>
-        <p><span className="font-bold">Expire Date: </span> {notes}</p>
+        <p><span className="font-bold">Additional Notes </span> {notes}</p>
     <div className="card-actions justify-end">
+    <Link to={`/details/${_id}`}>
     <button className='btn border-none bg-gradient-to-r from-yellow-200 to-yellow-600 hover:from-red-500 hover:to-orange-500 text-white'>View Details</button>
+    </Link>
     </div>
   </div>
 </div>

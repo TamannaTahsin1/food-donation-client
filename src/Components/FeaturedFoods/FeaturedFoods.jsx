@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import FeaturedFood from "./FeaturedFood";
+import { Link } from "react-router-dom";
 
 const FeaturedFoods = () => {
     const [features, setFeatures] = useState()
-
+    const [isShow, setIsShow] = useState(false);
     useEffect(() =>{
         fetch('http://localhost:5000/features')
         .then(res => res.json())
@@ -15,9 +16,23 @@ const FeaturedFoods = () => {
             <p className="text-center text-sm text-gray-400">Donated foods provide essential sustenance to those in need, helping to <br /> alleviate hunger and promote food security.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {
+                isShow ?
                 features?.map(feature => <FeaturedFood key={feature._id} feature={feature}></FeaturedFood>)
+                :
+                features?.slice(0,6).map(feature => <FeaturedFood key={feature._id} feature={feature}></FeaturedFood>)
             }
             </div>
+        <div className="flex justify-center items-center mt-5">
+        <Link >
+        <button
+        onClick={() => setIsShow(!isShow)}
+            className='btn border-none bg-gradient-to-r hover:from-yellow-200 hover:to-yellow-600 from-red-500 to-orange-500 text-white'>
+            {
+                isShow ? 'See less' : 'See more'
+            }
+          </button>
+        </Link>
+        </div>
         </div>
     );
 };
