@@ -11,6 +11,8 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import AllFoods from "../Pages/AllFoods/AllFoods";
 import PrivateRoute from "./PrivateRoute";
+import NewAddFoods from "../Pages/AddFood/NewAddFoods";
+import UpdateAddedFood from "../Pages/AddFood/UpdateAddedFood";
 
 const createdRoute = createBrowserRouter([
   {
@@ -28,7 +30,7 @@ const createdRoute = createBrowserRouter([
       },
       {
         path: "availableFoods/:food_name",
-        element: <AvailableFoods></AvailableFoods>,
+        element: <PrivateRoute><AvailableFoods></AvailableFoods></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/features')
       },
       {
@@ -38,7 +40,17 @@ const createdRoute = createBrowserRouter([
       },
       {
         path: "addFood",
-        element: <AddFood></AddFood>
+        element: <AddFood></AddFood>,
+      },
+      {
+        path: "foods",
+        element: <PrivateRoute><NewAddFoods></NewAddFoods></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/foods')
+      },
+      {
+        path: "/updateFood/:id",
+        element: <UpdateAddedFood></UpdateAddedFood>,
+        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
       },
       {
         path: "allFoods",

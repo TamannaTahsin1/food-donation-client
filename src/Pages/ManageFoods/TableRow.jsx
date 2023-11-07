@@ -1,50 +1,32 @@
-
-
-const TableRow = () => {
-    return (
-        <div>
-      <div className='overflow-x-auto'>
-        <table className='table'></table>
-                    {/* row 1 */}
-                    <tr>
-              <th>
-                <label>
-                  <input type='checkbox' className='checkbox' />
-                </label>
-              </th>
-              <td>
-                <div className='flex items-center space-x-3'>
-                  <div className='avatar'>
-                    <div className='mask mask-squircle w-12 h-12'>
-                      <img
-                        src='/tailwind-css-component-profile-2@56w.png'
-                        alt='Avatar Tailwind CSS Component'
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className='font-bold'>Hart Hagerty</div>
-                    <div className='text-sm opacity-50'>United States</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span className='badge badge-ghost badge-sm'>
-                  Desktop Support Technician
-                </span>
-              </td>
-              <td>Purple</td>
-              <th>
-                <button className='btn btn-ghost btn-xs'>details</button>
-              </th>
-            </tr>
-        </div>
-
-         
-        </div>
-    );
+// eslint-disable-next-line react/prop-types
+const TableRow = ({ myFood }) => {
+  const {_id, food_name, food_image, date, donate, location} = myFood || {};
+  const handleDelete = id =>{
+    const proceed = confirm('Are you sure you want to delete?')
+    if(proceed){
+      fetch(``)
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data)
+      })
+    }
+  }
+  return (
+    <>
+<div className="card card-compact w-96 bg-base-100 shadow-xl">
+  <figure><img src={food_image} alt="Shoes" /></figure>
+  <div className="card-body">
+    <h2 className="card-title">{food_name}</h2>
+    <p>Expire Date: {date}</p>
+    <p>Amount: {donate}</p>
+    <p>Pickup Location: {location}</p>
+    <div className="card-actions justify-end">
+      <button onClick={() => handleDelete(_id)} className="btn btn-primary">Cancel</button>
+    </div>
+  </div>
+</div>
+    </>
+  );
 };
 
 export default TableRow;
