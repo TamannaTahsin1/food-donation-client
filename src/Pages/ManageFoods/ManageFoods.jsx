@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import TableRow from "./TableRow";
 
+
 const ManageFoods = () => {
   const { user } = useContext(AuthContext);
   const [myFoods, setMyFoods] = useState([]);
@@ -14,19 +15,36 @@ const ManageFoods = () => {
       .then((data) => {
         setMyFoods(data);
       });
-  }, []);
+  }, [url]);
+
 
   return (
     <div className='container mx-auto mt-20'>
       {/* table */}
       <div className='overflow-x-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+      <table className='table'>
+      <thead>
+              <tr>
+              <th></th>
+                <th>Food Image</th>
+                <th>Requester Name</th>
+                <th>Requester Email</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+                <th></th>
+              </tr>
+            </thead>
+     
+        <tbody >
           {myFoods?.map((myFood) => (
-            <TableRow key={myFood._id} myFood={myFood}></TableRow>
+            <TableRow key={myFood._id} myFood={myFood} myFoods={myFoods} setMyFoods={setMyFoods}
+            ></TableRow>
           ))}
+        </tbody>
+        </table>
         </div>
       </div>
-    </div>
   );
 };
 

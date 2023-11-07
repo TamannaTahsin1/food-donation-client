@@ -1,30 +1,101 @@
+/** @format */
+
+import Swal from "sweetalert2";
+
 // eslint-disable-next-line react/prop-types
-const TableRow = ({ myFood }) => {
-  const {_id, food_name, food_image, date, donate, location} = myFood || {};
-  const handleDelete = id =>{
-    const proceed = confirm('Are you sure you want to delete?')
-    if(proceed){
-      fetch(``)
-      .then(res => res.json())
-      .then(data =>{
-        console.log(data)
+const TableRow = ({ myFood, myFoods, setMyFoods }) => {
+  const { _id, email, food_name, food_image, date, location, status } =
+    myFood || {};
+  // for confirm
+  const handleConfirm = (id) => {
+    fetch(`http://localhost:5000/donations/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ status: "confirm" }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          // eslint-disable-next-line react/prop-types
+          const remaining = myFoods?.filter((myFood) => myFood._id !== _id);
+          // eslint-disable-next-line react/prop-types
+          const updated = myFoods?.find((myFood) => myFood._id !== _id);
+          updated.status = "confirm";
+          const newDonations = [updated, ...remaining];
+          setMyFoods(newDonations);
+        }
+      });
+  };
+  // for delete
+  const handleDelete = (id) => {
+
+      fetch(`http://localhost:5000/donations/${id}`, {
+        method: "DELETE",
       })
-    }
-  }
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your donation has been deleted.",
+              icon: "success",
+            });
+            // eslint-disable-next-line react/prop-types
+            const remaining = myFoods?.filter((myFood) => myFood._id !== _id);
+            setMyFoods(remaining);
+          }
+        });
+    
+  };
   return (
     <>
-<div className="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><img src={food_image} alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">{food_name}</h2>
-    <p>Expire Date: {date}</p>
-    <p>Amount: {donate}</p>
-    <p>Pickup Location: {location}</p>
-    <div className="card-actions justify-end">
-      <button onClick={() => handleDelete(_id)} className="btn btn-primary">Cancel</button>
-    </div>
-  </div>
-</div>
+      {/* row 1 */}
+      <tr>
+        <th>
+          <label>
+            <input type='checkbox' className='checkbox' />
+          </label>
+        </th>
+        <td>
+          <div className='flex items-center space-x-3'>
+            <div className='avatar'>
+              <div className='mask mask-squircle w-12 h-12'>
+                <img src={food_image} alt='Avatar Tailwind CSS Component' />
+              </div>
+            </div>
+            <div>
+              <div className='font-bold'>{food_name}</div>
+              <div className='font-bold'>{date}</div>
+            </div>
+          </div>
+        </td>
+        <td>{date}</td>
+        <td>{email}</td>
+        <td>{location}</td>
+        <th>
+          {
+            status === 'confirmed' ?
+            <span  className='btn btn-ghost btn-xs'>Confirmed</span>
+            :
+            <button
+              onClick={() => handleConfirm(_id)}
+              className='btn btn-ghost btn-xs'>
+              Please Confirm
+            </button>
+          }
+        </th>
+        <th>
+        <button
+            onClick={() => handleDelete(_id)}
+            className='btn btn-ghost btn-xs'>
+            Cancel
+          </button>
+        </th>
+      </tr>
     </>
   );
 };
