@@ -20,9 +20,9 @@ const TableRow = ({ myFood, myFoods, setMyFoods }) => {
         console.log(data);
         if (data.modifiedCount > 0) {
           // eslint-disable-next-line react/prop-types
-          const remaining = myFoods?.filter((myFood) => myFood._id !== _id);
+          const remaining = myFoods?.filter(myFood => myFood._id !== _id);
           // eslint-disable-next-line react/prop-types
-          const updated = myFoods?.find((myFood) => myFood._id !== _id);
+          const updated = myFoods?.find(myFood => myFood._id === _id);
           updated.status = "confirm";
           const newDonations = [updated, ...remaining];
           setMyFoods(newDonations);
@@ -48,8 +48,7 @@ const TableRow = ({ myFood, myFoods, setMyFoods }) => {
             const remaining = myFoods?.filter((myFood) => myFood._id !== _id);
             setMyFoods(remaining);
           }
-        });
-    
+        });  
   };
   return (
     <>
@@ -78,20 +77,20 @@ const TableRow = ({ myFood, myFoods, setMyFoods }) => {
         <td>{location}</td>
         <th>
           {
-            status === 'confirmed' ?
-            <span  className='btn btn-ghost btn-xs'>Confirmed</span>
+            status === 'confirm' ?
+            <span  className='btn btn-ghost btn-xs'>Delivered</span>
             :
             <button
               onClick={() => handleConfirm(_id)}
               className='btn btn-ghost btn-xs'>
-              Please Confirm
+              Pending
             </button>
           }
         </th>
         <th>
         <button
             onClick={() => handleDelete(_id)}
-            className='btn btn-ghost btn-xs'>
+            className='btn btn-ghost btn-sm'>
             Cancel
           </button>
         </th>

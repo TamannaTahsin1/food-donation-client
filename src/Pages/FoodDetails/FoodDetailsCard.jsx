@@ -52,8 +52,8 @@ const FoodDetailsCard = ({ foodDetail }) => {
       console.log(data)
       if(data.insertedId){
         Swal.fire({
-          title: 'Cool',
-          text: 'Your Donation Added Successfully',
+          title: 'Yes',
+          text: 'Request Successful',
           icon: 'success',
           confirmButtonText: 'Cool'
         })

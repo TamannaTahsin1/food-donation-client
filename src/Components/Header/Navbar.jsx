@@ -60,7 +60,7 @@ const Navbar = () => {
               ? "text-white font-bold bg-yellow-500"
               : ""
           }>
-          MANAGE SINGLE FOODS
+          MY FOOD REQUEST
         </NavLink>
       </li>
     </>

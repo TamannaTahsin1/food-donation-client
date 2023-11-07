@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "./SocialLogin";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Login = () => {
   const {logIn} = useContext(AuthContext)
@@ -16,14 +17,16 @@ const Login = () => {
   // handle login form
   const handleLogin = e =>{
     e.preventDefault()
-    const form = new FormData(e.current.target)
+    const form = new FormData(e.currentTarget)
     const email = form.get('email')
     const password = form.get('password')
     console.log(email, password)
     // create user
     logIn(email, password)
     .then(result =>{
-      console.log(result.user);
+      const user ={email}
+      const loggedInUser =result.user
+      console.log(loggedInUser);
       toast.success('Successfully Logged in!',
       {
         icon: '👏',
@@ -33,8 +36,15 @@ const Login = () => {
           color: '#fff',
         },
       })
+      // get access token
+      axios.post('http://localhost:5000/jwt', user,{withCredentials: true})
+      .then(res =>{
+        console.log(res.data)
+        if(res.data.success){
       // navigate after login
       navigate(location?.state ? location.state : '/')
+        }
+      })
     })
     .catch(error =>{
       console.log(error)
