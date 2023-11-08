@@ -31,17 +31,17 @@ const createdRoute = createBrowserRouter([
       {
         path: "/allFoods",
         element:<PrivateRoute><AllFoods></AllFoods></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/features')
+        loader: () => fetch('https://food-donation-server-sooty.vercel.app/features')
       },
       {
         path: "/availableFoods/:food_name",
         element: <PrivateRoute><AvailableFoods></AvailableFoods></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/features')
+        loader: () => fetch('https://food-donation-server-sooty.vercel.app/features')
       },
       {
         path: "/details/:id",
         element: <FoodDetails></FoodDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/features/${params.id}`)
+        loader: ({params}) => fetch(`https://food-donation-server-sooty.vercel.app/features/${params.id}`)
       },
       {
         path: "/addFood",
@@ -50,12 +50,12 @@ const createdRoute = createBrowserRouter([
       {
         path: "/foods",
         element: <PrivateRoute><NewAddFoods></NewAddFoods></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://food-donation-server-sooty.vercel.app/foods')
       },
       {
         path: "/updateFood/:id",
         element: <UpdateAddedFood></UpdateAddedFood>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://food-donation-server-sooty.vercel.app/foods/${params.id}`)
       },
       {
         path: "/manageFoods",

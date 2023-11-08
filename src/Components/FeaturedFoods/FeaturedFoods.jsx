@@ -6,7 +6,7 @@ const FeaturedFoods = () => {
     const [features, setFeatures] = useState()
     const [isShow, setIsShow] = useState(false);
     useEffect(() =>{
-        fetch('http://localhost:5000/features')
+        fetch('https://food-donation-server-sooty.vercel.app/features')
         .then(res => res.json())
         .then(data => setFeatures(data))
     }, []) 

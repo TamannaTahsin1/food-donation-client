@@ -8,7 +8,7 @@ const ManageFoods = () => {
   const { user } = useContext(AuthContext);
   const [myFoods, setMyFoods] = useState([]);
 
-  const url = `http://localhost:5000/donations?email=${user?.email}`;
+  const url = `https://food-donation-server-sooty.vercel.app/donations?email=${user?.email}`;
 
   useEffect(() => {
     axios.get(url, {withCredentials: true})

@@ -8,7 +8,7 @@ const TableRow = ({ myFood, myFoods, setMyFoods }) => {
     myFood || {};
   // for confirm
   const handleConfirm = (id) => {
-    fetch(`http://localhost:5000/donations/${id}`, {
+    fetch(`https://food-donation-server-sooty.vercel.app/donations/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -32,7 +32,7 @@ const TableRow = ({ myFood, myFoods, setMyFoods }) => {
   // for delete
   const handleDelete = (id) => {
 
-      fetch(`http://localhost:5000/donations/${id}`, {
+      fetch(`https://food-donation-server-sooty.vercel.app/donations/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

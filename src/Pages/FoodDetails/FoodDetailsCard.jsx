@@ -40,7 +40,7 @@ const FoodDetailsCard = ({ foodDetail }) => {
     }
     console.log(donation)
     // send data in db
-    fetch('http://localhost:5000/donations',{
+    fetch('https://food-donation-server-sooty.vercel.app/donations',{
       method: 'POST',
       headers: {
         'content-type' : 'application/json'

@@ -9,7 +9,7 @@ const NewAddFoods = () => {
     const {user} = useContext(AuthContext);
     const [newFoods, setNewFoods] = useState([]);
     const [deleteFoods , setDeleteFoods] = useState(addedFoods)
-    const url = `http://localhost:5000/foods?email=${user?.email}`;
+    const url = `https://food-donation-server-sooty.vercel.app/foods?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url)

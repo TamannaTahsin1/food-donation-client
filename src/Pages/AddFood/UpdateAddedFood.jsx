@@ -41,7 +41,7 @@ const UpdateAddedFood = () => {
         console.log(updatedFoods);
     
         // send data to the server
-        fetch(`http://localhost:5000/foods/${_id}`, {
+        fetch(`https://food-donation-server-sooty.vercel.app/foods/${_id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
