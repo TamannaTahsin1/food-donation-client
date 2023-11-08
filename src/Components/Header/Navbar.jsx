@@ -26,6 +26,19 @@ const Navbar = () => {
       </li>
       <li className='font-bold'>
         <NavLink
+          to='/allFoods'
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-white font-bold bg-yellow-500"
+              : ""
+          }>
+          ALL FOOD
+        </NavLink>
+      </li>
+      <li className='font-bold'>
+        <NavLink
           to='/addFood'
           className={({ isActive, isPending }) =>
             isPending
@@ -93,7 +106,7 @@ const Navbar = () => {
           </div>
           <img src={logo} alt='' />
           <p className='font-bold text-2xl bg-gradient-to-r from-yellow-100 via-yellow-500 to-gray-300 text-transparent bg-clip-text'>
-            Food Flow
+          ShareFare
           </p>
         </div>
         <div className='navbar-center hidden lg:flex'>

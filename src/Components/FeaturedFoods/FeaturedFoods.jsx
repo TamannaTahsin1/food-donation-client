@@ -23,12 +23,12 @@ const FeaturedFoods = () => {
             }
             </div>
         <div className="flex justify-center items-center mt-5">
-        <Link >
+        <Link to='/allFoods'>
         <button
         onClick={() => setIsShow(!isShow)}
             className='btn border-none bg-gradient-to-r hover:from-yellow-200 hover:to-yellow-600 from-red-500 to-orange-500 text-white'>
             {
-                isShow ? 'See less' : 'See more'
+                isShow ? ' ' : 'See more'
             }
           </button>
         </Link>

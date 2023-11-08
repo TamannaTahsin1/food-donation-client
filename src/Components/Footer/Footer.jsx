@@ -5,7 +5,7 @@ const Footer = () => {
 <footer className="footer p-10 bg-base-200 text-base-content mt-10">
   <aside>
         <img src={logo} alt="" />
-    <p className='text-md'><span className='text-xl font-extrabold bg-gradient-to-r from-yellow-100 via-yellow-500 to-gray-300 text-transparent bg-clip-text'>Food Flow</span><br/>Providing trustable donation service</p>
+    <p className='text-md'><span className='text-xl font-extrabold bg-gradient-to-r from-yellow-100 via-yellow-500 to-gray-300 text-transparent bg-clip-text'>ShareFare</span><br/>Providing trustable donation service</p>
       <p>
       Regardless of whether you need to stay in your own house, <br /> are searching for help with a more established relative, <br /> looking for exhortation on paying for development.
       </p>
