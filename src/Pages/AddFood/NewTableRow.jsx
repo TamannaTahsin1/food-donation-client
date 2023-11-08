@@ -68,15 +68,19 @@ const NewTableRow = ({ newFood, deleteFoods, setDeleteFoods }) => {
         <td>{date}</td>
         <td>{location}</td>
         <td>{notes}</td>
-        <td>{location}</td>
+        {/* <td>{location}</td> */}
         <th>
-            <Link to={`updateFood/${_id}`}>
-            <button className='btn btn-ghost btn-xs'>update</button>
+            <Link to={`/updateFood/${_id}`}>
+            <button className='btn btn-ghost btn-xs'>Update</button>
             </Link>
           <button
             onClick={() => handleDelete(_id)}
             className='btn btn-ghost btn-xs'>
-            delete
+            Delete
+          </button>
+          <button
+            className='btn btn-ghost btn-xs'>
+            Manage
           </button>
         </th>
       </tr>

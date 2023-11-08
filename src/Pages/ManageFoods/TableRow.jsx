@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
 const TableRow = ({ myFood, myFoods, setMyFoods }) => {
-  const { _id, email, food_name, food_image, date, location, status } =
+  const { _id, name, email, food_name, food_image, date, status } =
     myFood || {};
   // for confirm
   const handleConfirm = (id) => {
@@ -40,8 +40,8 @@ const TableRow = ({ myFood, myFoods, setMyFoods }) => {
           console.log(data);
           if (data.deletedCount > 0) {
             Swal.fire({
-              title: "Deleted!",
-              text: "Your donation has been deleted.",
+              title: "Canceled!",
+              text: "Your donation has been canceled.",
               icon: "success",
             });
             // eslint-disable-next-line react/prop-types
@@ -72,9 +72,9 @@ const TableRow = ({ myFood, myFoods, setMyFoods }) => {
             </div>
           </div>
         </td>
-        <td>{date}</td>
+        <td>{name}</td>
         <td>{email}</td>
-        <td>{location}</td>
+        <td>{date}</td>
         <th>
           {
             status === 'confirm' ?

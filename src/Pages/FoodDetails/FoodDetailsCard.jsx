@@ -30,7 +30,7 @@ const FoodDetailsCard = ({ foodDetail }) => {
     const notes = form.notes.value;
 
     const donation = {
-      donarName : name,
+      name,
       email,
       food_name,
       food_image,

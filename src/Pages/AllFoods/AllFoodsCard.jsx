@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const AllFoodsCard = ({allFood}) => {
-    const {food_image, food_name, donar_image, donar_name, quantity, location, date} = allFood || {}
+    const {food_image, food_name, donor_image, donor_name, quantity, location, date} = allFood || {}
     return (
         <div className='card w-96 bg-base-100 shadow-xl'>
       <figure className='px-10 pt-10'>
@@ -16,8 +16,8 @@ const AllFoodsCard = ({allFood}) => {
       <div className='card-body items-center text-center'>
         <h2 className='card-title text-yellow-400 font-bold'>{food_name}</h2>
         <div className="flex justify-center items-center gap-5 mb-3">
-            <img src={donar_image} alt="" className="rounded-full w-10" />
-            <p className="font-bold">{donar_name}</p>
+            <img src={donor_image} alt="" className="rounded-full w-10" />
+            <p className="font-bold">{donor_name}</p>
         </div>
         <p><span className="font-bold">Food Quantity:</span> {quantity}</p>
         <p><span className="font-bold">Pickup Location:</span> {location}</p>

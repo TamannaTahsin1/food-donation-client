@@ -34,7 +34,7 @@ const NewAddFoods = () => {
                 <th>Expire Date</th>
                 <th>Location</th>
                 <th>Additional Note</th>
-                <th>Status</th>
+                {/* <th>Status</th> */}
                 <th>Actions</th>
                 <th></th>
               </tr>
