@@ -9,8 +9,8 @@ const Support = () => {
       style={{
         backgroundImage: "url(./supportt.jpg)",
       }}>
-      <div className='hero-overlay bg-yellow-700 bg-opacity-70 rounded-lg'></div>
-      <div className='hero-content text-center text-neutral-content'>
+      <div className='hero-overlay bg-yellow-700 bg-opacity-70 rounded-lg' data-aos="zoom-out-up"></div>
+      <div className='hero-content text-center text-neutral-content' data-aos="zoom-out-up">
         <div>
           <h1
             className='mb-5 text-2xl font-bold text-white'

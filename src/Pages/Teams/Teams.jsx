@@ -5,7 +5,7 @@ import team4 from '../../assets/img/6.jpg'
 
 const Teams = () => {
   return (
-    <div className='container mx-auto my-10'>
+    <div className='container mx-auto my-10' data-aos="flip-right">
       <h1 className='text-center text-4xl font-extrabold bg-gradient-to-r from-yellow-300 via-yellow-500 to-gray-500 text-transparent bg-clip-text'>Our Volunteers</h1>
       <p className='text-center mb-5 text-sm text-gray-400'>
         Your Attention Is Changed The Part Of World.Give a helping hand to those

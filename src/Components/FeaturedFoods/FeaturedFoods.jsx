@@ -11,7 +11,7 @@ const FeaturedFoods = () => {
         .then(data => setFeatures(data))
     }, []) 
     return (
-        <div className="container mx-auto my-10">
+        <div className="container mx-auto my-10" data-aos="fade-down-left">
             <h3  className="text-4xl font-extrabold bg-gradient-to-r from-yellow-100 via-yellow-500 to-gray-300 text-transparent bg-clip-text text-center mb-2">Featured Foods</h3>
             <p className="text-center text-sm text-gray-400">Donated foods provide essential sustenance to those in need, helping to <br /> alleviate hunger and promote food security.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -22,7 +22,7 @@ const FeaturedFoods = () => {
                 features?.slice(0,6).map(feature => <FeaturedFood key={feature._id} feature={feature}></FeaturedFood>)
             }
             </div>
-        <div className="flex justify-center items-center mt-5">
+        <div className="flex justify-center items-center mt-5" data-aos="fade-down-right">
         <Link to='/allFoods'>
         <button
         onClick={() => setIsShow(!isShow)}
