@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import img1 from '../../assets/img/about1.jpg'
 import img2 from '../../assets/img/about2.jpg'
 import img3 from '../../assets/img/about3.jpg'
-
+import './Banner.css'
 
 const Banner = () => {
     return (
@@ -17,6 +17,9 @@ const Banner = () => {
         />
         <div className='absolute flex items-center gap-5 h-full left-0 top-0 bottom-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]' data-aos="flip-up">
                 <div className='text-white space-y-7 w-1/2 pl-5' data-aos="flip-up">
+                  <div className='animated-text'>
+                        Share Fare is a <span></span>
+                  </div>
                     <h1 className='font-bold text-6xl bg-gradient-to-r from-yellow-100 via-yellow-500 to-gray-300 text-transparent bg-clip-text'>ShareFare</h1>
                     <p className='text-gray-400 text-sm'>Food donation website connects donors and recipients, providing a digital <br /> platform to share surplus food and reduce food waste while helping those in need. It is a convenient and impactful way to contribute to hunger relief efforts in the community.</p>
                     <div>
